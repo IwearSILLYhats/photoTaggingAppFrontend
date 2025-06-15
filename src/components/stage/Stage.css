@@ -1,0 +1,7 @@
+.stage {
+  width: 20rem;
+  height: 20rem;
+  background-color: grey;
+  border: 2px solid black;
+  position: relative;
+}
