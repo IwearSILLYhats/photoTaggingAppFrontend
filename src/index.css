@@ -8,6 +8,7 @@
 /* 2. Remove default margin */
 * {
   margin: 0;
+  padding: 0;
 }
 
 /* 3. Enable keyword animations */
@@ -16,12 +17,16 @@
     interpolate-size: allow-keywords;
   }
 }
+html {
+  height: 100%;
+}
 
 body {
   /* 4. Add accessible line-height */
   line-height: 1.5;
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
+  height: 100%;
 }
 
 /* 6. Improve media defaults */

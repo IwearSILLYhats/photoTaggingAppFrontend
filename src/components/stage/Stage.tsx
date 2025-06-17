@@ -2,7 +2,7 @@ import TargetBox from "../targetbox/TargetBox";
 import { useState } from "react";
 import "./Stage.css";
 
-function Stage() {
+function Stage({ target }: { target: boolean }) {
   const targetList = ["Waldo", "Waldress", "Doggo", "Gangdalf"];
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
   function handleClick(click: React.MouseEvent<HTMLDivElement>) {
@@ -21,9 +21,7 @@ function Stage() {
       className="stage"
       onClick={(event: React.MouseEvent<HTMLDivElement>) => handleClick(event)}
     >
-      {coordinates && (
-        <TargetBox targets={targetList} coordinates={coordinates} />
-      )}
+      {target && <TargetBox targets={targetList} coordinates={coordinates} />}
     </div>
   );
 }

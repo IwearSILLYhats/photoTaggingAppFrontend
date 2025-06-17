@@ -1,4 +1,25 @@
 .targetBox {
   position: absolute;
+  background-color: transparent;
+  border: 3px solid black;
+  border-radius: 50%;
+  padding: 1rem;
+  transform: translateX(-50%) translateY(-50%);
+  transition: top 1s, left 1s;
+}
+.dropdown {
+  border-radius: 5px;
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  border: 1px solid black;
   background-color: red;
+  padding: 0.25rem;
+}
+.dropdown ul,
+li {
+  list-style-type: none;
+}
+.dropdown li:hover {
+  background-color: darkred;
 }

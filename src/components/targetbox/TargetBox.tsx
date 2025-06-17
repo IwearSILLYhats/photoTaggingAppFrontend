@@ -15,7 +15,6 @@ function TargetBox({ targets, coordinates }: targetBoxProps) {
       className="targetBox"
       style={{ top: coordinates.y, left: coordinates.x }}
     >
-      <p>{`x: ${coordinates.x} y: ${coordinates.y}`}</p>
       <Dropdown targets={targets} />
     </div>
   );
