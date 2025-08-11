@@ -21,6 +21,7 @@ function Stage({ target }: { target: boolean }) {
       className="stage"
       onClick={(event: React.MouseEvent<HTMLDivElement>) => handleClick(event)}
     >
+      <img src="" alt="" />
       {target && <TargetBox targets={targetList} coordinates={coordinates} />}
     </div>
   );

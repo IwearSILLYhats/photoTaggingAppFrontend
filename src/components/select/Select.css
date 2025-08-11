@@ -1,0 +1,23 @@
+.select {
+  display: flex;
+  gap: 1rem;
+}
+.scores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+.card {
+  width: 20rem;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 0.5rem;
+}
+.card img {
+  border: 1px solid black;
+  width: 10rem;
+  height: 10rem;
+  justify-self: center;
+  align-self: center;
+  margin: auto;
+}
