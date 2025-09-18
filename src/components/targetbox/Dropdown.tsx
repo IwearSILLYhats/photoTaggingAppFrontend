@@ -1,13 +1,25 @@
-interface dropdownProps {
-  targets: string[];
-}
-
-function Dropdown({ targets }: dropdownProps) {
+function Dropdown({ targets, coordinates, guess }: targetBoxProps) {
+  console.log(targets);
   return (
     <div className="dropdown">
       <ul>
-        {targets.map((target: string) => {
-          return <li>{target}</li>;
+        {targets.map((target: Character) => {
+          if (target?.found) {
+            return (
+              <li key={target.id} data-id={target.id} className="found">
+                {target.name}
+              </li>
+            );
+          }
+          return (
+            <li
+              key={target.id}
+              data-id={target.id}
+              onClick={() => guess({ id: target.id, coordinates })}
+            >
+              {target.name}
+            </li>
+          );
         })}
       </ul>
     </div>

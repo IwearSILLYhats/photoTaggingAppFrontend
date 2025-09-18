@@ -1,4 +1,5 @@
 .targetBox {
+  pointer-events: none;
   position: absolute;
   background-color: transparent;
   border: 3px solid black;
@@ -8,18 +9,28 @@
   transition: top 1s, left 1s;
 }
 .dropdown {
+  pointer-events: all;
   border-radius: 5px;
   position: absolute;
   left: 2rem;
   top: 2rem;
   border: 1px solid black;
-  background-color: red;
+  background-color: white;
   padding: 0.25rem;
 }
 .dropdown ul,
 li {
+  font-size: 75%;
   list-style-type: none;
+  min-width: 6rem;
 }
 .dropdown li:hover {
-  background-color: darkred;
+  background-color: grey;
+}
+.found {
+  text-decoration: line-through;
+}
+.marker {
+  border-color: gainsboro;
+  outline: dashed red;
 }

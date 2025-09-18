@@ -1,8 +1,3 @@
-interface scoreData {
-  username: string;
-  time: number;
-}
-
 function Scores({ scoreData, index }: { scoreData: scoreData; index: number }) {
   return (
     <>

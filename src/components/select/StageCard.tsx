@@ -1,17 +1,5 @@
 import Scores from "./Scores";
 
-interface Stage {
-  id: number;
-  img_url: string;
-  name: string;
-  score: [Score];
-}
-interface Score {
-  id: number;
-  username: string;
-  time: number;
-}
-
 const blankScore: Score = {
   id: 0,
   username: "---",

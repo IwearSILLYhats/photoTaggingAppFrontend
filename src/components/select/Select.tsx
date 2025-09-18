@@ -1,17 +1,5 @@
 import StageCard from "./StageCard";
 
-interface Stage {
-  id: number;
-  img_url: string;
-  name: string;
-  score: [Score];
-}
-interface Score {
-  id: number;
-  username: string;
-  time: number;
-}
-
 function Select({ stageData }: { stageData: Stage[] }) {
   return (
     <div className="select">

@@ -1,21 +1,13 @@
 import Dropdown from "./Dropdown";
 import "./TargetBox.css";
 
-interface targetBoxProps {
-  targets: string[];
-  coordinates: {
-    x: number;
-    y: number;
-  };
-}
-
-function TargetBox({ targets, coordinates }: targetBoxProps) {
+function TargetBox({ targets, coordinates, guess }: targetBoxProps) {
   return (
     <div
       className="targetBox"
-      style={{ top: coordinates.y, left: coordinates.x }}
+      style={{ top: coordinates.y + "%", left: coordinates.x + "%" }}
     >
-      <Dropdown targets={targets} />
+      <Dropdown targets={targets} coordinates={coordinates} guess={guess} />
     </div>
   );
 }
