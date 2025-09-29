@@ -1,14 +1,16 @@
 import TargetBox from "../targetbox/TargetBox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Stage.css";
 import Target from "../targetbox/target";
 
 function Stage({
   target,
   stageData,
+  setscore,
 }: {
   target: boolean;
   stageData: stageData;
+  setscore: Function;
 }) {
   async function makeGuess(guess: guess) {
     const request = await fetch(`${import.meta.env.VITE_API_URL}/guess`, {
@@ -27,10 +29,17 @@ function Stage({
     const updatedList = targetList.filter(
       (e) => e.id !== response.success.character.id
     );
-    console.log(updatedList);
     setTargetList([...updatedList, response.success.character]);
   }
-  const [targetList, setTargetList] = useState(stageData.Character);
+  const [targetList, setTargetList] = useState(
+    stageData.Character as Character[]
+  );
+  useEffect(() => {
+    console.log(targetList);
+    if (targetList.every((item) => item.found === true)) {
+      setscore(true);
+    }
+  }, [targetList]);
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
   function handleClick(click: React.MouseEvent<HTMLDivElement>) {
     const targ = click.target as HTMLDivElement;

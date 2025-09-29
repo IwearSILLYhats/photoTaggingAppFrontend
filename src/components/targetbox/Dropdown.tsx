@@ -1,5 +1,4 @@
 function Dropdown({ targets, coordinates, guess }: targetBoxProps) {
-  console.log(targets);
   return (
     <div className="dropdown">
       <ul>

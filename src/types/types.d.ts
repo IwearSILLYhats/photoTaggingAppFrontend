@@ -4,6 +4,13 @@ interface Character {
   found?: boolean;
   coordinates?: coordinates;
 }
+interface formParams {
+  stageid: string;
+}
+interface formData {
+  username: string;
+  time: number;
+}
 interface stageData {
   id: number;
   name: string;
