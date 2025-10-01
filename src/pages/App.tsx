@@ -11,6 +11,7 @@ function App() {
   const [target, setTarget] = useState(false);
   const [score, setScore] = useState(false);
   const [time, setTime] = useState(0);
+  const [token, setToken] = useState<string>(null);
 
   function Timer() {
     useEffect(() => {
@@ -54,8 +55,16 @@ function App() {
           <Timer />
         </header>
       )}
-      {data && <Stage target={target} setscore={setScore} stageData={data} />}
-      {score && <Score time={time} />}
+      {score && <Score time={time} token={token} />}
+      {data && (
+        <Stage
+          target={target}
+          setscore={setScore}
+          stageData={data}
+          token={token}
+          setToken={setToken}
+        />
+      )}
     </main>
   );
 }

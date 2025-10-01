@@ -7,10 +7,14 @@ function Stage({
   target,
   stageData,
   setscore,
+  token,
+  setToken,
 }: {
   target: boolean;
   stageData: stageData;
   setscore: Function;
+  token: string;
+  setToken: React.Dispatch<React.SetStateAction<string>>;
 }) {
   async function makeGuess(guess: guess) {
     const request = await fetch(`${import.meta.env.VITE_API_URL}/guess`, {
@@ -18,24 +22,26 @@ function Stage({
         "Content-Type": "application/json",
       },
       method: "POST",
-      body: JSON.stringify(guess),
+      body: JSON.stringify({ ...guess, token }),
     });
     const response: guessResponse = await request.json();
     if (response.error) {
       console.log(response.error);
       return;
     }
-    console.log(response.success.message, response.success.character);
     const updatedList = targetList.filter(
       (e) => e.id !== response.success.character.id
     );
+    setToken(response.success.token);
     setTargetList([...updatedList, response.success.character]);
   }
   const [targetList, setTargetList] = useState(
     stageData.Character as Character[]
   );
   useEffect(() => {
-    console.log(targetList);
+    setToken(stageData.token);
+  }, []);
+  useEffect(() => {
     if (targetList.every((item) => item.found === true)) {
       setscore(true);
     }

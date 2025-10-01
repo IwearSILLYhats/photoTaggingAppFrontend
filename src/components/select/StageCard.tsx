@@ -8,10 +8,8 @@ const blankScore: Score = {
 
 function StageCard({ stageData }: { stageData: Stage }) {
   if (!Array.isArray(stageData.score)) stageData.score = [blankScore];
-  const scores: Score[] = [
-    ...stageData.score.slice(0, 5),
-    ...Array(5 - Scores.length).fill(blankScore),
-  ];
+  let scores: Score[] = [...stageData.Score.slice(0, 5)];
+  scores = [...scores, ...Array(5 - scores.length).fill(blankScore)];
   return (
     <div className="card">
       <a href={`/stage/${stageData.id}`} className="stageInfo">

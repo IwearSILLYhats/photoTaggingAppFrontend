@@ -16,12 +16,13 @@ interface stageData {
   name: string;
   img_url: string;
   Character: [Character];
+  token: string;
 }
 interface Stage {
   id: number;
   img_url: string;
   name: string;
-  score: [Score];
+  Score: [Score];
 }
 interface Score {
   id: number;
@@ -49,6 +50,7 @@ interface guessResponse extends Response.body {
   success: {
     character: Character;
     message: string;
-  };
+    token: string;
+  } | null;
   error: string;
 }
